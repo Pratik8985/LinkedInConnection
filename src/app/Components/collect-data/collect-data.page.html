@@ -1,8 +1,3 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Inline Modal</ion-title>
-  </ion-toolbar>
-</ion-header>
 <ion-content class="ion-padding">
   <ion-button id="open-modal" expand="block">Open</ion-button>
   <p>{{ message }}</p>
@@ -39,14 +34,18 @@
         <ion-list>
           <ion-item>
             <ion-select
-             label="Priority" 
+             label="Priority"
              interface="popover"
-              placeholder="Select fruit" 
+              placeholder="Select fruit"
               label-placement="stacked"
               (ionChange)="handleChange($event)"
               [(ngModel)]="importance">
               <ion-select-option *ngFor="let priority of priorities"  [value]="priority">{{priority}}</ion-select-option>
             </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Notes</ion-label>
+            <ion-textarea style="border-radius: 1px solid black;" [(ngModel)]="notes"></ion-textarea>
           </ion-item>
         </ion-list>
       </ion-content>

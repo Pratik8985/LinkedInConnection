@@ -27,6 +27,7 @@ export class CollectDataPage implements OnInit {
   public technology:string;
   public city:string;
   public importance:string;
+  public notes:string;
   public data:any;
 
   cancel() {
@@ -39,8 +40,8 @@ export class CollectDataPage implements OnInit {
       'profession':this.profession,
       'technology':this.technology,
       'city':this.city,
-      'priority':this.importance
-
+      'priority':this.importance,
+      'notes':this.notes
     }
     this.modal.dismiss(this.name, 'confirm');
     console.log(this.profession, this.name,this.city,this.technology, this.importance);
