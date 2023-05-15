@@ -11,6 +11,14 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'collect-data',
+    loadChildren: () => import('./Components/collect-data/collect-data.module').then( m => m.CollectDataPageModule)
+  },
+  {
+    path: 'display-data',
+    loadChildren: () => import('./Components/display-data/display-data.module').then( m => m.DisplayDataPageModule)
+  },
 ];
 
 @NgModule({
