@@ -1,6 +1,17 @@
+  <div class="ion-padding">
   <ion-grid>
     <ion-row>
-      <ion-col sizeMd="2.4" *ngFor="let item of sharedData.data | keyvalue">{{item.value}}</ion-col>
+      <ion-col sizeMd="2">Name</ion-col>
+      <ion-col sizeMd="2">Profession</ion-col>
+      <ion-col sizeMd="2">Technology</ion-col>
+      <ion-col sizeMd="2">City</ion-col>
+      <ion-col sizeMd="2">Priority</ion-col>
+      <ion-col sizeMd="2">Notes</ion-col>
+
+    </ion-row>
+    <ion-row>
+      <ion-col sizeMd="2" *ngFor="let item of sharedData.convertedData">{{item[1]}}</ion-col>
     </ion-row>
   </ion-grid>
 <h1>HEllo</h1>
+</div>

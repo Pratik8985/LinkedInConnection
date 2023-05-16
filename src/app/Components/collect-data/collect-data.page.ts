@@ -46,6 +46,13 @@ export class CollectDataPage implements OnInit {
     this.modal.dismiss(this.name, 'confirm');
     console.log(this.profession, this.name,this.city,this.technology, this.importance);
     console.log('this.data',this.sharedData.data);
+    this.sharedData.convertedData=Object.entries(this.sharedData.data)
+    this.name='';
+    this.profession='';
+    this.technology='';
+    this.city='';
+    this.importance='';
+    this.notes='';
   }
 
   onWillDismiss(event: Event) {
