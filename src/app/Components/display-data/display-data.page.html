@@ -9,9 +9,17 @@
       <ion-col sizeMd="2">Notes</ion-col>
 
     </ion-row>
-    <ion-row>
-      <ion-col sizeMd="2" *ngFor="let item of sharedData.convertedData">{{item[1]}}</ion-col>
-    </ion-row>
+    <ion-list *ngFor="let user of users" (click)="openUserData(user)">
+      <ion-row>
+        <ion-col sizeMd="2" >{{user.name}}</ion-col>
+        <ion-col sizeMd="2" >{{user.profession}}</ion-col>
+        <ion-col sizeMd="2" >{{user.technology}}</ion-col>
+        <ion-col sizeMd="2" >{{user.city}}</ion-col>
+        <ion-col sizeMd="2" >{{user.priority}}</ion-col>
+        <ion-col sizeMd="2" >{{user.notes}}</ion-col>
+
+      </ion-row>
+    </ion-list>
+    
   </ion-grid>
-<h1>HEllo</h1>
 </div>

@@ -2,6 +2,7 @@ import { OverlayEventDetail } from '@ionic/core/components';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonModal } from '@ionic/angular';
 import { SharedService } from 'src/app/Services/shared.service';
+import { DataService } from 'src/app/Services/data.service';
 
 @Component({
   selector: 'app-collect-data',
@@ -12,7 +13,8 @@ export class CollectDataPage implements OnInit {
   currentFood = undefined;
   public priorities=['Very Important', 'Important', 'Medium', 'Low']
   @ViewChild(IonModal) modal: IonModal;
-  constructor(private sharedData:SharedService) { }
+  constructor(private sharedData:SharedService,
+    private dataService:DataService) { }
 
   ngOnInit() {
   }
@@ -47,12 +49,15 @@ export class CollectDataPage implements OnInit {
     console.log(this.profession, this.name,this.city,this.technology, this.importance);
     console.log('this.data',this.sharedData.data);
     this.sharedData.convertedData=Object.entries(this.sharedData.data)
+    this.dataService.addLinkedInConnection({name:this.name, profession:this.profession,technology:this.technology,
+      city:this.city, priority:this.importance,notes:this.notes})
     this.name='';
     this.profession='';
     this.technology='';
     this.city='';
     this.importance='';
     this.notes='';
+    
   }
 
   onWillDismiss(event: Event) {

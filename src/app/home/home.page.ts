@@ -1,6 +1,7 @@
 import { OverlayEventDetail } from '@ionic/core/components';
 import { Component, ViewChild } from '@angular/core';
 import { IonModal } from '@ionic/angular';
+import { DataService } from '../Services/data.service';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,11 @@ import { IonModal } from '@ionic/angular';
 })
 export class HomePage {
   @ViewChild(IonModal) modal: IonModal;
-  constructor() { }
+  constructor(private dataService:DataService) {
+    this.dataService.fetchLinkedInConnectionNotes().subscribe((res)=>{
+
+    })
+   }
 
   ngOnInit() {
   }
