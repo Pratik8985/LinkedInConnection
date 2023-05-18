@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>info</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+<div *ngIf="user" >
+  <ion-item>
+    <ion-label position="stacked">Name</ion-label>
+    <ion-input [(ngModel)]="user.name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Profession</ion-label>
+    <ion-input [(ngModel)]="user.profession"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Technology</ion-label>
+    <ion-input [(ngModel)]="user.technology"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">City</ion-label>
+    <ion-input [(ngModel)]="user.city"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Priority</ion-label>
+    <ion-input [(ngModel)]="user.priority"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Notes</ion-label>
+    <ion-input [(ngModel)]="user.notes"></ion-input>
+  </ion-item>
+  
+
+</div>
+</ion-content>

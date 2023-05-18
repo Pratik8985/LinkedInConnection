@@ -19,6 +19,10 @@ const routes: Routes = [
     path: 'display-data',
     loadChildren: () => import('./Components/display-data/display-data.module').then( m => m.DisplayDataPageModule)
   },
+  {
+    path: 'info',
+    loadChildren: () => import('./Components/info/info.module').then( m => m.InfoPageModule)
+  },
 ];
 
 @NgModule({
