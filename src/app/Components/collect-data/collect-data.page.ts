@@ -23,7 +23,6 @@ export class CollectDataPage implements OnInit {
     this.currentFood = ev.target.value;
     console.log(' this.currentFood', this.currentFood);
   }
-  message = 'This modal example uses triggers to automatically open a modal when the button is clicked.';
   name: string;
   public profession:string;
   public technology:string;
@@ -63,7 +62,6 @@ export class CollectDataPage implements OnInit {
   onWillDismiss(event: Event) {
     const ev = event as CustomEvent<OverlayEventDetail<string>>;
     if (ev.detail.role === 'confirm') {
-      this.message = `Hello, ${ev.detail.data}!`;
     }
   }
 }

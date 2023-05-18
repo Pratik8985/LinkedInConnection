@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, ToastController } from '@ionic/angular';
 import { LinkedInConnection } from 'src/app/Services/data.service';
 import { DataService } from 'src/app/Services/data.service';
 
@@ -11,7 +11,8 @@ import { DataService } from 'src/app/Services/data.service';
 export class InfoPage implements OnInit {
 @Input() id:string;
 user:LinkedInConnection;
-  constructor(private dataService:DataService, private modalCtrl:ModalController) { }
+  constructor(private dataService:DataService, private modalCtrl:ModalController,
+    public toastCtrl:ToastController) { }
 
   ngOnInit() {
     this.dataService.fetchLinkedInConnectionById(this.id).subscribe((res)=>{
@@ -19,5 +20,20 @@ user:LinkedInConnection;
     })
     
   }
+  public async updateUser()
+  {
+    this.dataService.updateLinkedInConnectionData(this.user);
+    this.modalCtrl.dismiss();
+    const toast=await this.toastCtrl.create({
+      message:'User Details Updated',
+      duration:1500
+    });
+    toast.present();
+  }
+  public deleteUser()
+  {
+    this.dataService.deleteLinkedInConnection(this.user)
+    this.modalCtrl.dismiss();
 
+  }
 }

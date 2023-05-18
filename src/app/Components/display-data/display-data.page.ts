@@ -36,17 +36,10 @@ public user:any;
       component:InfoPage,
       componentProps:{id:user.id},
       breakpoints:[0,0.50,0.8],
-      initialBreakpoint:0.6
+      initialBreakpoint:0.7
     });
     modal.present()
   }
  
-  public updateUser()
-  {
-    // this.dataService.updateLinkedInConnectionData
-  }
-  public deleteUser()
-  {
-
-  }
+ 
 }
