@@ -2,6 +2,8 @@ import { OverlayEventDetail } from '@ionic/core/components';
 import { Component, ViewChild } from '@angular/core';
 import { IonModal } from '@ionic/angular';
 import { DataService } from '../Services/data.service';
+import { AuthService } from '../Services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +12,9 @@ import { DataService } from '../Services/data.service';
 })
 export class HomePage {
   @ViewChild(IonModal) modal: IonModal;
-  constructor(private dataService:DataService) {
+  constructor(private dataService:DataService,
+    private authService:AuthService,
+    private router:Router) {
     this.dataService.fetchLinkedInConnectionNotes().subscribe((res)=>{
 
     })
@@ -35,5 +39,10 @@ export class HomePage {
     if (ev.detail.role === 'confirm') {
       this.message = `Hello, ${ev.detail.data}!`;
     }
+  }
+  async logout()
+  {
+   await this.authService.logout();
+   this.router.navigateByUrl('/login', {replaceUrl:true})
   }
 }
