@@ -1,16 +1,27 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import {canActivate, redirectLoggedInTo, redirectUnauthorizedTo} from '@angular/fire/auth-guard'
 
+
+const redirectUnauthorizedToLogin=()=> redirectUnauthorizedTo(['']);
+const redirectLoggednInToHome=()=>redirectLoggedInTo(['home']);
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    path: '',
+    loadChildren: () => import('./Components/login/login.module').then( m => m.LoginPageModule),
+    ...canActivate(redirectLoggednInToHome)
   },
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
+    ...canActivate(redirectUnauthorizedToLogin)
+
   },
+  // {
+  //   path: '',
+  //   redirectTo: 'home',
+  //   pathMatch: 'full'
+  // },
   {
     path: 'collect-data',
     loadChildren: () => import('./Components/collect-data/collect-data.module').then( m => m.CollectDataPageModule)
@@ -22,6 +33,17 @@ const routes: Routes = [
   {
     path: 'info',
     loadChildren: () => import('./Components/info/info.module').then( m => m.InfoPageModule)
+  },
+
+  {
+    path: 'navbar',
+    loadChildren: () => import('./Components/navbar/navbar.module').then( m => m.NavbarPageModule)
+  },
+
+  {
+    path:'**',
+    redirectTo:'',
+    pathMatch:'full'
   },
 ];
 
