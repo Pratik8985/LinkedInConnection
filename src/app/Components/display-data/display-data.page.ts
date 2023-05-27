@@ -36,7 +36,7 @@ public user:any;
       component:InfoPage,
       componentProps:{id:user.id},
       breakpoints:[0,0.50,0.8],
-      initialBreakpoint:0.7
+      initialBreakpoint:0.8
     });
     modal.present()
   }
