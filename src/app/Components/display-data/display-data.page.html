@@ -1,22 +1,22 @@
   <div class="ion-padding">
-  <ion-grid>
+  <ion-grid class="ion-padding">
     <ion-row>
       <ion-col sizeMd="2">Name</ion-col>
-      <ion-col sizeMd="2">Profession</ion-col>
+      <ion-col sizeMd="2" *ngIf="sharedData.platform=='Desktop browser'" >Profession</ion-col>
       <ion-col sizeMd="2">Technology</ion-col>
-      <ion-col sizeMd="2">City</ion-col>
+      <ion-col sizeMd="2" *ngIf="sharedData.platform=='Desktop browser'">City</ion-col>
       <ion-col sizeMd="2">Priority</ion-col>
-      <ion-col sizeMd="2">Notes</ion-col>
+      <ion-col sizeMd="2" *ngIf="sharedData.platform=='Desktop browser'">Notes</ion-col>
 
     </ion-row>
     <ion-list *ngFor="let user of users" (click)="openUserData(user)">
       <ion-row>
         <ion-col sizeMd="2" >{{user.name}}</ion-col>
-        <ion-col sizeMd="2" >{{user.profession}}</ion-col>
+        <ion-col sizeMd="2" *ngIf="sharedData.platform=='Desktop browser'">{{user.profession}}</ion-col>
         <ion-col sizeMd="2" >{{user.technology}}</ion-col>
-        <ion-col sizeMd="2" >{{user.city}}</ion-col>
+        <ion-col sizeMd="2" *ngIf="sharedData.platform=='Desktop browser'">{{user.city}}</ion-col>
         <ion-col sizeMd="2" >{{user.priority}}</ion-col>
-        <ion-col sizeMd="2" >{{user.notes}}</ion-col>
+        <ion-col sizeMd="2" *ngIf="sharedData.platform=='Desktop browser'">{{user.notes}}</ion-col>
 
       </ion-row>
     </ion-list>
